@@ -256,7 +256,8 @@ class PolarPlugin :
     ) {
         val identifier = call.arguments as String
         val calendar = Calendar.getInstance()
-        calendar.time = Date()
+        //calendar.time = Date()
+        calendar.setTime(Date())
 
         wrapper.api
             .setLocalTime(identifier, calendar)
