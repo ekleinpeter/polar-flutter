@@ -41,6 +41,8 @@ import java.lang.reflect.Type
 import java.util.Date
 import java.util.UUID
 import java.util.Calendar
+import java.time.LocalDateTime
+import java.time.ZoneId
 
 fun Any?.discard() = Unit
 
@@ -257,7 +259,10 @@ class PolarPlugin :
         val identifier = call.arguments as String
         val calendar = Calendar.getInstance()
         //calendar.time = Date()
-        calendar.setTime(Date())
+        //calendar.setTime(Date())
+        val localDateTime = LocalDateTime.now()
+        val zonedDateTime = localDateTime.atZone(ZoneId.systemDefault())
+        calendar.time = Date.from(zonedDateTime.toInstant())
 
         wrapper.api
             .setLocalTime(identifier, calendar)
