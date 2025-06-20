@@ -259,12 +259,12 @@ class PolarPlugin :
     ) {
         val identifier = call.arguments as String
         val calendar = Calendar.getInstance()
-        //calendar.time = Date()
-        //calendar.setTime(Date())
-        val localDateTime = LocalDateTime.now()
-        //val zonedDateTime = localDateTime.atZone(ZoneId.of("Europe/Paris"))
-        val zonedDateTime = ZonedDateTime.now(ZoneId.of("America/New_York"))
-        calendar.time = Date.from(zonedDateTime.toInstant())
+        calendar.time = Date()
+
+        // *** TEST
+        //val zonedDateTime = ZonedDateTime.now(ZoneId.of("America/New_York"))
+        //calendar.time = Date.from(zonedDateTime.toInstant())
+        // *** /TEST
 
         wrapper.api
             .setLocalTime(identifier, calendar)
