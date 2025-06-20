@@ -261,7 +261,8 @@ class PolarPlugin :
         //calendar.time = Date()
         //calendar.setTime(Date())
         val localDateTime = LocalDateTime.now()
-        val zonedDateTime = localDateTime.now(ZoneId.of("Europe/Paris"))
+        //val zonedDateTime = localDateTime.atZone(ZoneId.of("Europe/Paris"))
+        val zonedDateTime = zonedDateTime.now(ZoneId.of("Europe/Paris"))
         calendar.time = Date.from(zonedDateTime.toInstant())
 
         wrapper.api
